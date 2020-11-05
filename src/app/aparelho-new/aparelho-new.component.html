@@ -1,0 +1,45 @@
+<div class="content-box">
+  
+    <a routerLink="/list">
+        <button >back</button>
+    </a>
+    <h1>Cadastro de aparelho</h1>
+    <form [formGroup]="form1" (ngSubmit)="doSave(form1.value)">
+        <table>
+            <tr>
+                <td>Nome :</td>
+                <td><input type="text" formControlName="nome" [(ngModel)]="aparelho.nome"  /></td>
+            </tr>   
+            
+            <tr>
+                <td>Modelo :</td>
+                <td><input type="text" formControlName="modelo" [(ngModel)]="aparelho.modelo"  /></td>
+            </tr>   
+            <tr>
+                <td>Serial :</td>
+                <td><input type="text" formControlName="serial" [(ngModel)]="aparelho.serial"  /></td>
+            </tr>   
+            <tr>
+                <td>defeito_obs :</td>
+                <td><input type="text" formControlName="defeito_obs" [(ngModel)]="aparelho.defeito_obs"  /></td>
+            </tr>   
+            <tr>
+                <td>Valor :</td>
+                <td><input currencyMask formControlName="valor" type="text" [options]="{ prefix: 'R$ ', thousands: ',', decimal: '.' }" [(ngModel)]="aparelho.valor"  /></td> 
+            </tr>   
+            <tr>
+                <td>pronto :</td>
+                <td><input type="checkbox" [(ngModel)]="prontoCheck"   (change)="prontoCheck = !prontoCheck" /></td> 
+            </tr>   
+            <tr>
+                <input value="Enviar" type="button" type="submit" />
+            </tr>
+        
+        </table>
+        
+    </form>
+
+<!-- <a routerLink="/aparelho/{{aparelho.id}}">
+    <button>Contact Seller</button>
+</a> -->
+</div>

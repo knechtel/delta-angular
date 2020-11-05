@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "delta-angular"
+    }
+  },
+  "defaultProject": "delta-angular",
+  "cli": {
+    "analytics": "c0cf7f19-5439-4960-8645-c234d7474f73"
+  }
 }

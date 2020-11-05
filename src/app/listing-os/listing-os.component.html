@@ -1,0 +1,7 @@
+<div>
+    <div class="content-box" *ngFor="let listing of clienteList">
+        <a routerLink="/os-detail/{{listing.id}}">
+            <h3>{{listing.nome}}   Ordem de serviço {{listing.id}}</h3>
+        </a>
+    </div>
+</div>

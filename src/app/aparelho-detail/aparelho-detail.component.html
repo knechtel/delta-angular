@@ -1,0 +1,41 @@
+<div class="content-box">
+
+    <a routerLink="/list">
+        <button>back</button>
+    </a>
+    <br>
+    <br>
+    <form [formGroup]="form1" (ngSubmit)="doEdit(form1.value)">
+        <table>
+
+            <tr>
+                <td>Id :</td>
+                <td>{{aparelho.id}}</td>
+            </tr>
+            <tr>
+                <td>Nome :</td>
+                <td><input type=" text" formControlName="defeito_obs" [(ngModel)]="aparelho.nome" />
+                </td>
+                <!-- <td><input type="text" value="aparelhoDetail.nome"/></td> -->
+            </tr>
+
+            <tr>
+                <td>Modelo :</td>
+                <td><input type="text" formControlName="modelo" [(ngModel)]="aparelho.modelo" /></td>
+            </tr>
+            <tr>
+                <td>Obs :</td>
+                <td><input type="text" formControlName="defeito_obs" [(ngModel)]="aparelho.defeito_obs" /></td>
+            </tr>
+            <tr>
+                <td>valor :</td>
+                <td><input type="text" value="{{ aparelho.valor | currency:'BRL'}}" /></td>
+            </tr>
+            <tr><button type="submit" >Enviar</button></tr>
+            <!-- <tr><td>Serial:</td> <td><input type="text" value="{{aparelhoDetail.serial}}"/></td><tr> -->
+        </table>
+    </form>
+    <!-- <a routerLink="/aparelho/{{aparelho.id}}">
+    <button>Contact Seller</button>
+</a> -->
+</div>

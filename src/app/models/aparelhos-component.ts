@@ -1,0 +1,17 @@
+export interface Aparelho { 
+    id: number,
+    nome: string,
+    modelo: string,
+    serial: string,
+    pronto: string,
+    idCliente: number,
+    autorizado: string,
+    garantia: string,
+    entregue: string,
+    defeitoObs: string,
+    dataEntrada: string,
+    dataSaida:String,
+    uuidCliente: string,
+    valor: number,
+    defeito_obs:string,
+}

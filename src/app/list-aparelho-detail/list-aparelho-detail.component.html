@@ -1,0 +1,9 @@
+<div>
+    <div class="content-box" *ngFor="let aparelho of listAparelho">
+        <a routerLink="/aparelho/{{aparelho.id}}">
+            <h3>{{aparelho.nome}}    aparelho {{aparelho.idCliente}}</h3>
+        </a>
+    </div>
+</div>
+
+

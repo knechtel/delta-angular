@@ -1,0 +1,39 @@
+<div class="content-box">
+
+    <a routerLink="/list">
+        <button>back</button>
+    </a>
+        <h3>  
+            Ordem de serviço:
+            {{cliente.id}}
+        </h3>
+    <table>
+        <h2>{{cliente.nome}}</h2>
+        <tr>
+            <td>Nome :</td>
+            <td><input type="text" value="{{cliente.nome}}" /></td>
+        </tr>
+      
+        <tr>
+            <td>Endereço :</td>
+            <td><input type="text" value="{{cliente.endereco}}" /></td>
+        </tr>
+        <tr>
+            <td>telefone:</td>
+            <td><input type="text" value="{{cliente.telefone}}" /></td>
+        <tr>
+
+    </table>
+    <a routerLink="/aparelho-new/{{cliente.id}}">
+        <button>Adicionar Aparelho</button>
+    </a>
+
+    <div>
+        <div class="content-box" *ngFor="let aparelho of aparelho">
+            <a routerLink="/aparelho/{{aparelho.id}}">
+                <h3>Nome : {{aparelho.nome}} aparelho id: {{aparelho.id}}</h3>
+            </a>
+        </div>
+    </div>
+
+</div>

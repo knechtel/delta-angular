@@ -1,0 +1,6 @@
+<form [formGroup]="form1" (ngSubmit)="doDownload(form1.value)">
+    <label for="fname">Numero da Ordem de serviço:</label>
+    <input type="text" formControlName="id"  [(ngModel)]="id"><br><br>
+   
+    <button  type="submit">Submit using POST</button>
+</form>
