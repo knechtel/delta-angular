@@ -10,10 +10,23 @@ import { FormGroup, FormControl,NgForm  } from '@angular/forms';
 })
 export class AparelhoDetailComponent implements OnInit {
   form1: FormGroup;
+  
   aparelho ={} as Aparelho;
+  prontoCheck :boolean
   constructor(private route: ActivatedRoute,private aparelhoService:AparelhoService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    
+    const id =Number(this.route.snapshot.paramMap.get('id'))
+    this.aparelho.id = id;
+    this.aparelho = await this.aparelhoService.getAparelho(this.aparelho).toPromise()
+    console.log("olha aqui -> "+this.aparelho.pronto)
+    if(this.aparelho.pronto==='PRONTO'){
+      this.prontoCheck = true    
+    }else{
+      this.aparelho.pronto='NAO_PRONTO'
+      this.prontoCheck = false
+    }
     this.form1 = new FormGroup({
       
       nome: new FormControl(''),      
@@ -21,19 +34,23 @@ export class AparelhoDetailComponent implements OnInit {
       serial: new FormControl(''),
       defeito_obs: new FormControl(''),
       email: new FormControl(''),
-    })
-    const id =Number(this.route.snapshot.paramMap.get('id'))
-    this.aparelho.id = id;
-    this.aparelhoService.getAparelho(this.aparelho).subscribe( res =>{
-      this.aparelho = res;
+      pronto:new FormControl(this.prontoCheck)
     })
   }
 
-  doEdit(form1:NgModule){
-    this.aparelhoService.postAparelho(this.aparelho).subscribe(
-     res=> {this.aparelho=res}
-    )
-    alert("Aparelho editado com sucesso!")
+  async doEdit(form1:NgModule){
+    this.prontoCheck=!this.prontoCheck;
+    if(this.prontoCheck){
+      this.prontoCheck = true    
+      this.aparelho.pronto = 'PRONTO'
+    }else{
+      this.prontoCheck = false
+      this.aparelho.pronto = 'NAO_PRONTO'
+    }
+    this.aparelho = await this.aparelhoService.postAparelho(this.aparelho).toPromise()
+    alert("Aparelho editado com sucesso! - >"+this.aparelho.pronto)
   }
+
+
 
 }

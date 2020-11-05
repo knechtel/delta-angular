@@ -3,6 +3,7 @@
     <a routerLink="/list">
         <button>back</button>
     </a>
+    <h1>Aparelho de nome_cliente</h1>
     <br>
     <br>
     <form [formGroup]="form1" (ngSubmit)="doEdit(form1.value)">
@@ -31,6 +32,10 @@
                 <td>valor :</td>
                 <td><input type="text" value="{{ aparelho.valor | currency:'BRL'}}" /></td>
             </tr>
+            <tr>
+                <td>pronto :</td>
+                <td><input type="checkbox"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="prontoCheck = !prontoCheck" /></td> 
+            </tr>   
             <tr><button type="submit" >Enviar</button></tr>
             <!-- <tr><td>Serial:</td> <td><input type="text" value="{{aparelhoDetail.serial}}"/></td><tr> -->
         </table>
