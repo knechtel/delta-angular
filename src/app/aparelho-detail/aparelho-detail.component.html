@@ -17,7 +17,7 @@
                 <td>Nome :</td>
                 <td><input type=" text" [readonly]="aparelhoEntregue" formControlName="nome" [(ngModel)]="aparelho.nome" />
                 </td>
-                <!-- <td><input type="text" value="aparelhoDetail.nome"/></td> -->
+                
             </tr>
 
             <tr>
@@ -37,14 +37,12 @@
                 <td><input type="checkbox" [readonly]="aparelhoEntregue"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="eventCheckPronto($event.target)" /></td> 
             </tr>   
             <tr>
-                <td> <label [hidden]="controleCheckBoxEntregue">Entregue</label></td>
+                <td> Entregue</td>
                 <td><input type="checkbox" [hidden]="controleCheckBoxEntregue"  formControlName="entregue" [(ngModel)]="entregueCheck"   (change)="eventCheckEntregue($event.target)" /></td> 
-            </tr>   
+                <td> <label [hidden]="!controleCheckBoxEntregue">Aparelho já entregue!</label></td>
+            </tr>
             <tr><button type="submit" >Enviar</button></tr>
-            <!-- <tr><td>Serial:</td> <td><input type="text" value="{{aparelhoDetail.serial}}"/></td><tr> -->
+           
         </table>
     </form>
-    <!-- <a routerLink="/aparelho/{{aparelho.id}}">
-    <button>Contact Seller</button>
-</a> -->
 </div>
