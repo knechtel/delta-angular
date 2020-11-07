@@ -12,7 +12,10 @@ export class AparelhoDetailComponent implements OnInit {
   form1: FormGroup;
   
   aparelho ={} as Aparelho;
-  prontoCheck :boolean
+  prontoCheck:boolean
+  entregueCheck:boolean
+
+  
   constructor(private route: ActivatedRoute,private aparelhoService:AparelhoService) { }
 
   async ngOnInit() {
@@ -20,13 +23,22 @@ export class AparelhoDetailComponent implements OnInit {
     const id =Number(this.route.snapshot.paramMap.get('id'))
     this.aparelho.id = id;
     this.aparelho = await this.aparelhoService.getAparelho(this.aparelho).toPromise()
-    console.log("olha aqui -> "+this.aparelho.pronto)
+    console.log("olha aqui -> "+this.aparelho.entregue)
     if(this.aparelho.pronto==='PRONTO'){
-      this.prontoCheck = true    
+      this.aparelho.pronto='PRONTO'
+      this.prontoCheck=true;
     }else{
       this.aparelho.pronto='NAO_PRONTO'
-      this.prontoCheck = false
+      this.prontoCheck=false;
     }
+    if(this.aparelho.entregue==='ENTREGUE'){
+      this.aparelho.entregue = 'ENTREGUE'
+      this.entregueCheck=true;
+    }else{
+      this.aparelho.entregue ='NAO_ENTREGUE'
+      this.entregueCheck=false;
+    }
+    
     this.form1 = new FormGroup({
       
       nome: new FormControl(''),      
@@ -35,23 +47,33 @@ export class AparelhoDetailComponent implements OnInit {
       defeito_obs: new FormControl(''),
       email: new FormControl(''),
       pronto:new FormControl(this.prontoCheck),
-      valor: new FormControl('')
+      valor: new FormControl(''),
+      entregue: new FormControl(this.entregueCheck) 
     })
   }
 
   async doEdit(form1:NgModule){
-    this.prontoCheck=!this.prontoCheck;
-    if(this.prontoCheck){
-      this.prontoCheck = true    
-      this.aparelho.pronto = 'PRONTO'
-    }else{
-      this.prontoCheck = false
-      this.aparelho.pronto = 'NAO_PRONTO'
-    }
+    
     this.aparelho = await this.aparelhoService.postAparelho(this.aparelho).toPromise()
-    alert("Aparelho editado com sucesso! - >"+this.aparelho.pronto)
+    alert("Aparelho editado com sucesso! - >"+this.aparelho.pronto+" valor de aparelho entregue "+this.aparelho.entregue)
   }
-
-
+  eventCheckEntregue(event){
+    if(event.checked){
+      this.aparelho.entregue = 'ENTREGUE'
+      this.entregueCheck=true;
+    }else{
+      this.aparelho.entregue = 'NAO_ENTRGUE'
+      this.entregueCheck=false;
+    }
+  }
+  eventCheckPronto(event){
+    if(event.checked){
+      this.aparelho.pronto = 'PRONTO'
+      this.prontoCheck=true;
+    }else{
+      this.aparelho.pronto = 'NAO_PRONTO'
+      this.prontoCheck=false;
+    }
+  }
 
 }

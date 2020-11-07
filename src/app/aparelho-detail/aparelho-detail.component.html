@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>Nome :</td>
-                <td><input type=" text" formControlName="nome" [(ngModel)]="aparelho.nome" />
+                <td><input type=" text" [readonly]="true" formControlName="nome" [(ngModel)]="aparelho.nome" />
                 </td>
                 <!-- <td><input type="text" value="aparelhoDetail.nome"/></td> -->
             </tr>
@@ -34,7 +34,11 @@
             </tr>
             <tr>
                 <td>pronto :</td>
-                <td><input type="checkbox"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="prontoCheck = !prontoCheck" /></td> 
+                <td><input type="checkbox"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="eventCheckPronto($event.target)" /></td> 
+            </tr>   
+            <tr>
+                <td>Entregue :</td>
+                <td><input type="checkbox"  formControlName="entregue" [(ngModel)]="entregueCheck"   (change)="eventCheckEntregue($event.target)" /></td> 
             </tr>   
             <tr><button type="submit" >Enviar</button></tr>
             <!-- <tr><td>Serial:</td> <td><input type="text" value="{{aparelhoDetail.serial}}"/></td><tr> -->
