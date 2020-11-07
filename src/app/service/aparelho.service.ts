@@ -9,7 +9,7 @@ import { ClienteForm } from '../models/cliente-form-component';
 })
 export class AparelhoService {
 
-  url: string = 'http://localhost:6060';
+  url: string = 'http://ec2-18-231-107-181.sa-east-1.compute.amazonaws.com:8080';
   // Headers
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -24,7 +24,7 @@ export class GeraPdfComponent implements OnInit {
     console.log("chama funcao = "+this.id)
   var mediaType = 'application/pdf';
   var params = {id:this.id};
-    this.http.post("http://localhost:6060/geraRelatorio?"+"id="+this.id,{body}, { responseType: 'blob' }).subscribe(
+    this.http.post("http://ec2-18-231-107-181.sa-east-1.compute.amazonaws.com:8080/geraRelatorio?"+"id="+this.id,{body}, { responseType: 'blob' }).subscribe(
         (response) => {
             var blob = new Blob([response], { type: mediaType });
             saveAs(blob, 'test.pdf');

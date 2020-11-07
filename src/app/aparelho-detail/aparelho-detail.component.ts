@@ -34,7 +34,8 @@ export class AparelhoDetailComponent implements OnInit {
       serial: new FormControl(''),
       defeito_obs: new FormControl(''),
       email: new FormControl(''),
-      pronto:new FormControl(this.prontoCheck)
+      pronto:new FormControl(this.prontoCheck),
+      valor: new FormControl('')
     })
   }
 
