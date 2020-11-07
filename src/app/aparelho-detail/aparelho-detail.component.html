@@ -6,7 +6,7 @@
     <h1>Aparelho de nome_cliente</h1>
     <br>
     <br>
-    <form [formGroup]="form1" (ngSubmit)="doEdit(form1.value)">
+    <form [formGroup]="form" (ngSubmit)="doEdit(form.value)">
         <table>
 
             <tr>
@@ -15,30 +15,30 @@
             </tr>
             <tr>
                 <td>Nome :</td>
-                <td><input type=" text" [readonly]="true" formControlName="nome" [(ngModel)]="aparelho.nome" />
+                <td><input type=" text" [readonly]="aparelhoEntregue" formControlName="nome" [(ngModel)]="aparelho.nome" />
                 </td>
                 <!-- <td><input type="text" value="aparelhoDetail.nome"/></td> -->
             </tr>
 
             <tr>
                 <td>Modelo :</td>
-                <td><input type="text" formControlName="modelo" [(ngModel)]="aparelho.modelo" /></td>
+                <td><input type="text" [readonly]="aparelhoEntregue" formControlName="modelo" [(ngModel)]="aparelho.modelo" /></td>
             </tr>
             <tr>
                 <td>Obs :</td>
-                <td><input type="text" formControlName="defeito_obs" [(ngModel)]="aparelho.defeito_obs" /></td>
+                <td><input type="text" [readonly]="aparelhoEntregue" formControlName="defeito_obs" [(ngModel)]="aparelho.defeito_obs" /></td>
             </tr>
             <tr>
                 <td>valor :</td>
-                <td><input currencyMask formControlName="valor" type="text" [options]="{ prefix: 'R$ ', thousands: ',', decimal: '.' }" [(ngModel)]="aparelho.valor"  /></td> 
+                <td><input currencyMask  [readonly]="aparelhoEntregue" formControlName="valor" type="text" [options]="{ prefix: 'R$ ', thousands: ',', decimal: '.' }" [(ngModel)]="aparelho.valor"  /></td> 
             </tr>
             <tr>
                 <td>pronto :</td>
-                <td><input type="checkbox"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="eventCheckPronto($event.target)" /></td> 
+                <td><input type="checkbox" [readonly]="aparelhoEntregue"  formControlName="pronto" [(ngModel)]="prontoCheck"   (change)="eventCheckPronto($event.target)" /></td> 
             </tr>   
             <tr>
                 <td>Entregue :</td>
-                <td><input type="checkbox"  formControlName="entregue" [(ngModel)]="entregueCheck"   (change)="eventCheckEntregue($event.target)" /></td> 
+                <td><input type="checkbox" disabled="aparelhoEntregue"  formControlName="entregue" [(ngModel)]="entregueCheck"   (change)="eventCheckEntregue($event.target)" /></td> 
             </tr>   
             <tr><button type="submit" >Enviar</button></tr>
             <!-- <tr><td>Serial:</td> <td><input type="text" value="{{aparelhoDetail.serial}}"/></td><tr> -->
