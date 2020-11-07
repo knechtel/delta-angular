@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>Nome :</td>
-                <td><input type=" text" formControlName="defeito_obs" [(ngModel)]="aparelho.nome" />
+                <td><input type=" text" formControlName="nome" [(ngModel)]="aparelho.nome" />
                 </td>
                 <!-- <td><input type="text" value="aparelhoDetail.nome"/></td> -->
             </tr>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>valor :</td>
-                <td><input type="text" value="{{ aparelho.valor | currency:'BRL'}}" /></td>
+                <td><input currencyMask formControlName="valor" type="text" [options]="{ prefix: 'R$ ', thousands: ',', decimal: '.' }" [(ngModel)]="aparelho.valor"  /></td> 
             </tr>
             <tr>
                 <td>pronto :</td>
