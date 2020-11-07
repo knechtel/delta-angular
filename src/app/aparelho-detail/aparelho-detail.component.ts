@@ -58,7 +58,7 @@ export class AparelhoDetailComponent implements OnInit {
       entregue: new FormControl(this.entregueCheck)
     })
 
-    console.log("valor a visualizar - > "+this.controleCheckBoxEntregue);
+    
   }
 
   async doEdit(form1: NgModule) {
