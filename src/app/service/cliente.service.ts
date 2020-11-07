@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ClienteService {
 
-  url: string = 'http://localhost:6060';
+  url: string = 'http://ec2-18-231-107-181.sa-east-1.compute.amazonaws.com:8080';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
