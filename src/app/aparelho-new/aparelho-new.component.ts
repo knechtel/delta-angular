@@ -43,6 +43,7 @@ export class AparelhoNewComponent implements OnInit {
     this.aparelho.defeito_obs='';
     this.aparelho.valor=0;
     this.prontoCheck= false
+    alert("Aparelho cadastrado com sucesso!");
   }
 
 }

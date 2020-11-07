@@ -14,6 +14,7 @@ export class AparelhoDetailComponent implements OnInit {
   prontoCheck: boolean;
   entregueCheck: boolean;
   aparelhoEntregue:boolean =false;
+  controleCheckBoxEntregue:boolean =false;
 
   constructor(private route: ActivatedRoute, private aparelhoService: AparelhoService) { }
 
@@ -39,6 +40,10 @@ export class AparelhoDetailComponent implements OnInit {
     }
     if (this.aparelho.entregue === this.ENTRGUE) {
       this.aparelhoEntregue = true
+      this.controleCheckBoxEntregue = true;
+    }else{
+      this.aparelhoEntregue=false;
+      this.controleCheckBoxEntregue=false
     }
 
     this.form = new FormGroup({
@@ -52,6 +57,8 @@ export class AparelhoDetailComponent implements OnInit {
       valor: new FormControl(''),
       entregue: new FormControl(this.entregueCheck)
     })
+
+    console.log("valor a visualizar - > "+this.controleCheckBoxEntregue);
   }
 
   async doEdit(form1: NgModule) {
