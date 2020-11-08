@@ -3,21 +3,21 @@
     <a routerLink="/list">
         <button>back</button>
     </a>
-    <h1>Aparelho de nome_cliente</h1>
+    <h1>Aparelho de {{cliente.nome}}</h1>
+    <h3>Ordem de serviço: {{cliente.id}}</h3>
     <br>
     <br>
     <form [formGroup]="form" (ngSubmit)="doEdit(form.value)">
         <table>
 
             <tr>
-                <td>Id :</td>
+                <td>Id do aparelho:</td>
                 <td>{{aparelho.id}}</td>
             </tr>
             <tr>
                 <td>Nome :</td>
                 <td><input type=" text" [readonly]="aparelhoEntregue" formControlName="nome" [(ngModel)]="aparelho.nome" />
                 </td>
-                
             </tr>
 
             <tr>

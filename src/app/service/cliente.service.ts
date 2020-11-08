@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Cliente } from "../models/cliente-component";
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { ClienteForm } from '../models/cliente-form-component';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +24,9 @@ export class ClienteService {
       .pipe(
 
       )
+  }
+
+  getCliente(clienteForm: ClienteForm): Observable<Cliente> {
+    return this.http.post<Cliente>(this.url + '/clienteById', clienteForm);
   }
 }

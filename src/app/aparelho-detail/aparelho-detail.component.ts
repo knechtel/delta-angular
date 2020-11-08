@@ -1,8 +1,12 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Aparelho } from '../models/aparelhos-component';
+import { Cliente } from '../models/cliente-component';
+import { ClienteForm } from '../models/cliente-form-component';
 import { ActivatedRoute } from '@angular/router';
 import { AparelhoService } from '../service/aparelho.service';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { ClienteService } from '../service/cliente.service';
+
 @Component({
   selector: 'app-aparelho-detail',
   templateUrl: './aparelho-detail.component.html',
@@ -10,13 +14,17 @@ import { FormGroup, FormControl, NgForm } from '@angular/forms';
 })
 export class AparelhoDetailComponent implements OnInit {
   form: FormGroup;
+  cliente ={} as Cliente;
   aparelho = {} as Aparelho;
   prontoCheck: boolean;
   entregueCheck: boolean;
   aparelhoEntregue:boolean =false;
   controleCheckBoxEntregue:boolean =false;
+  clienteForm = {} as ClienteForm;
 
-  constructor(private route: ActivatedRoute, private aparelhoService: AparelhoService) { }
+  constructor(private route: ActivatedRoute, 
+    private aparelhoService: AparelhoService,
+    private clienteService: ClienteService) { }
 
   async ngOnInit() {
 
@@ -58,7 +66,9 @@ export class AparelhoDetailComponent implements OnInit {
       entregue: new FormControl(this.entregueCheck)
     })
 
-    
+    this.clienteForm.id = this.aparelho.idCliente;
+    this.cliente = await this.clienteService.getCliente(this.clienteForm).toPromise();
+    //this.clienteService.getCliente(n)
   }
 
   async doEdit(form1: NgModule) {
