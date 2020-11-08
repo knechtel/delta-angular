@@ -15,6 +15,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AdicionarClienteComponent } from './adicionar-cliente/adicionar-cliente.component';
 import { GeraPdfComponent } from './gera-pdf/gera-pdf.component';
+import { BuscaOsComponentComponent } from './busca-os-component/busca-os-component.component';
 
 registerLocaleData(ptBr);
 @NgModule({
@@ -28,6 +29,7 @@ registerLocaleData(ptBr);
     NavBarComponent,
     AdicionarClienteComponent,
     GeraPdfComponent,
+    BuscaOsComponentComponent,
     
   ],
   imports: [
