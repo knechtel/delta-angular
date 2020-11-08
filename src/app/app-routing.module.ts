@@ -8,9 +8,10 @@ import { AparelhoNewComponent } from './aparelho-new/aparelho-new.component';
 import { AparelhoService } from './service/aparelho.service';
 import { AdicionarClienteComponent } from './adicionar-cliente/adicionar-cliente.component';
 import { GeraPdfComponent } from './gera-pdf/gera-pdf.component';
-
+import { BuscaOsComponentComponent } from "./busca-os-component/busca-os-component.component";
 const routes: Routes = [
   {path:'list',component:ListingOsComponent,pathMatch:'full' },
+  {path:'busca-os',component:BuscaOsComponentComponent,pathMatch:'full' },
   {path:'adicionarCliente', component:AdicionarClienteComponent, pathMatch:'full'},
   {path:'geraPdf', component:GeraPdfComponent, pathMatch:'full'},
   {path:'os-detail/:id', component:ListOsDetailComponent},
